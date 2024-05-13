@@ -60,7 +60,7 @@ def task_2():
 
 def task_3(case_number):
     with open(f"{case_number}.ics", "r", encoding="utf-8") as f:
-        raw_data = f.read().encode('utf-8')
+        raw_data = f.read()
     c = Calendar(raw_data)
     cleaned_events = [i for i in c.events if i.begin.datetime > datetime.now(zone) - timedelta(days=10000)]
     result = [{"case_number": f"{case_number}",
